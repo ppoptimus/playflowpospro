@@ -1,0 +1,785 @@
+:root {
+    --pf-ink: #17324a;
+    --pf-ink-soft: #617890;
+    --pf-primary: #2075f0;
+    --pf-secondary: #11b08a;
+    --pf-accent: #ff9752;
+    --pf-surface: rgba(255, 255, 255, 0.82);
+    --pf-line: rgba(23, 50, 74, 0.1);
+    --pf-shadow: 0 24px 70px rgba(19, 59, 97, 0.12);
+    --pf-shadow-strong: 0 34px 90px rgba(12, 37, 63, 0.22);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Noto Sans Thai", sans-serif;
+    color: var(--pf-ink);
+    background:
+        radial-gradient(circle at top left, rgba(32, 117, 240, 0.18), transparent 28%),
+        radial-gradient(circle at 90% 10%, rgba(17, 176, 138, 0.14), transparent 22%),
+        linear-gradient(180deg, #f7fbff 0%, #fffefb 58%, #f6fbff 100%);
+}
+
+.pf-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.55)),
+        linear-gradient(rgba(32, 117, 240, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(32, 117, 240, 0.04) 1px, transparent 1px);
+    background-size: auto, 24px 24px, 24px 24px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+h1,
+h2,
+h3,
+.navbar-brand,
+.btn,
+.accordion-button {
+    font-family: "Sora", "Noto Sans Thai", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.pf-navbar {
+    padding: 1rem 0;
+    background: rgba(247, 251, 255, 0.72);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.72);
+}
+
+.pf-brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    padding: 0.28rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 12px 28px rgba(32, 117, 240, 0.12);
+}
+
+.pf-brand-mark img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.pf-brand-title,
+.pf-brand-subtitle {
+    display: block;
+    line-height: 1.15;
+}
+
+.pf-brand-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--pf-ink);
+}
+
+.pf-brand-subtitle {
+    font-size: 0.74rem;
+    color: var(--pf-ink-soft);
+}
+
+.nav-link {
+    color: var(--pf-ink);
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: var(--pf-primary);
+}
+
+.pf-hero {
+    padding: 9rem 0 4.5rem;
+    overflow: hidden;
+}
+
+.pf-section {
+    padding: 5.5rem 0;
+}
+
+.pf-section--soft {
+    background: linear-gradient(180deg, rgba(235, 246, 255, 0.8), rgba(255, 249, 241, 0.55));
+}
+
+.pf-section--dark {
+    position: relative;
+    color: #f0f7ff;
+    background:
+        radial-gradient(circle at 20% 15%, rgba(32, 117, 240, 0.2), transparent 28%),
+        radial-gradient(circle at 80% 0%, rgba(17, 176, 138, 0.14), transparent 18%),
+        linear-gradient(145deg, #11253d, #15395d 58%, #0f243a);
+}
+
+.pf-kicker {
+    display: inline-flex;
+    margin-bottom: 1rem;
+    padding: 0.48rem 0.95rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(23, 50, 74, 0.08);
+    color: var(--pf-primary);
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+.pf-hero-title,
+.pf-heading h2 {
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: -0.045em;
+}
+
+.pf-hero-title {
+    font-size: clamp(2.65rem, 5vw, 5rem);
+    margin-bottom: 1.3rem;
+}
+
+.pf-heading {
+    max-width: 48rem;
+    margin-bottom: 2.75rem;
+}
+
+.pf-heading h2 {
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    margin-bottom: 0.9rem;
+}
+
+.pf-heading--light h2,
+.pf-heading--light .pf-copy {
+    color: #eaf3fb;
+}
+
+.pf-copy {
+    color: var(--pf-ink-soft);
+    line-height: 1.8;
+}
+
+.pf-copy--hero {
+    max-width: 39rem;
+    font-size: 1.02rem;
+}
+
+.pf-proof-list {
+    display: grid;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.pf-proof-list span {
+    display: inline-flex;
+    align-items: center;
+}
+
+.pf-proof-list i {
+    margin-right: 0.55rem;
+    color: var(--pf-secondary);
+}
+
+.pf-hero-metric,
+.pf-card,
+.pf-stat,
+.pf-panel-box,
+.pf-module,
+.pf-step,
+.pf-contact-card,
+.accordion-item {
+    background: var(--pf-surface);
+    border: 1px solid var(--pf-line);
+    box-shadow: var(--pf-shadow);
+}
+
+.pf-hero-metric {
+    height: 100%;
+    padding: 1.1rem;
+    border-radius: 1.25rem;
+}
+
+.pf-hero-metric__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    margin-bottom: 0.95rem;
+    border-radius: 0.95rem;
+    background: linear-gradient(135deg, rgba(32, 117, 240, 0.16), rgba(17, 176, 138, 0.16));
+    color: var(--pf-primary);
+    font-size: 1.15rem;
+}
+
+.pf-hero-metric__label {
+    font-size: 0.83rem;
+    font-weight: 700;
+    color: var(--pf-ink-soft);
+}
+
+.pf-hero-metric__value {
+    margin-top: 0.4rem;
+    font-family: "Sora", "Noto Sans Thai", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.pf-hero-metric__detail {
+    margin: 0.6rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--pf-ink-soft);
+}
+
+.pf-showcase {
+    position: relative;
+    padding: 2rem;
+    border-radius: 2rem;
+    background: linear-gradient(145deg, rgba(12, 36, 60, 0.97), rgba(18, 58, 89, 0.95));
+    box-shadow: var(--pf-shadow-strong);
+    overflow: hidden;
+}
+
+.pf-showcase-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(12px);
+}
+
+.pf-showcase-glow--one {
+    top: -4.5rem;
+    right: -2rem;
+    width: 13rem;
+    height: 13rem;
+    background: rgba(32, 117, 240, 0.24);
+}
+
+.pf-showcase-glow--two {
+    bottom: -5rem;
+    left: -1rem;
+    width: 12rem;
+    height: 12rem;
+    background: rgba(17, 176, 138, 0.2);
+}
+
+.pf-dashboard {
+    position: relative;
+    z-index: 1;
+    padding: 1.45rem;
+    border-radius: 1.55rem;
+    background: rgba(244, 250, 255, 0.96);
+}
+
+.pf-dashboard__top {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.pf-dashboard__eyebrow {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--pf-primary);
+}
+
+.pf-dashboard__top h2 {
+    margin: 0.35rem 0 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.pf-badge {
+    display: inline-flex;
+    height: fit-content;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(17, 176, 138, 0.12);
+    color: var(--pf-secondary);
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+
+.pf-card {
+    height: 100%;
+    padding: 1.1rem;
+    border-radius: 1.25rem;
+}
+
+.pf-card--soft {
+    background: linear-gradient(180deg, #fff, #eef7ff);
+}
+
+.pf-card--tall {
+    background: linear-gradient(180deg, #fff, #ebf6ff);
+}
+
+.pf-label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--pf-ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.pf-value {
+    display: block;
+    margin-top: 0.45rem;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.pf-trend {
+    display: inline-block;
+    margin-top: 0.35rem;
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+.pf-trend.up {
+    color: var(--pf-secondary);
+}
+
+.pf-bars {
+    display: flex;
+    align-items: end;
+    gap: 0.55rem;
+    height: 4.9rem;
+    margin-top: 1.1rem;
+}
+
+.pf-bars span {
+    width: 0.82rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--pf-primary), var(--pf-secondary));
+}
+
+.pf-mini-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.95rem 0 0;
+}
+
+.pf-mini-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7rem 0;
+    border-bottom: 1px dashed rgba(23, 50, 74, 0.12);
+}
+
+.pf-mini-list li:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.pf-mini-list span {
+    color: var(--pf-ink-soft);
+}
+
+.pf-branch-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.95rem;
+    padding: 0.78rem 0.95rem;
+    border-radius: 1rem;
+    background: #f7fbff;
+}
+
+.pf-chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 1rem;
+}
+
+.pf-chip-list span {
+    padding: 0.46rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(32, 117, 240, 0.08);
+    color: var(--pf-primary);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.pf-dot {
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+}
+
+.pf-dot.success {
+    background: var(--pf-secondary);
+}
+
+.pf-dot.warning {
+    background: var(--pf-accent);
+}
+
+.pf-floating {
+    position: absolute;
+    z-index: 2;
+    max-width: 14rem;
+    padding: 1rem 1.1rem;
+    border-radius: 1.2rem;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 20px 35px rgba(11, 30, 53, 0.2);
+    font-size: 0.88rem;
+    line-height: 1.7;
+}
+
+.pf-floating--left {
+    left: -0.4rem;
+    bottom: 4rem;
+}
+
+.pf-floating--right {
+    right: -0.4rem;
+    bottom: 1rem;
+}
+
+.pf-stat,
+.pf-panel-box,
+.pf-module,
+.pf-step {
+    height: 100%;
+    padding: 1.5rem;
+    border-radius: 1.35rem;
+}
+
+.pf-stat__icon,
+.pf-panel-box__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 0.9rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, rgba(32, 117, 240, 0.14), rgba(17, 176, 138, 0.14));
+    color: var(--pf-primary);
+    font-size: 1.22rem;
+}
+
+.pf-stat strong {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 1.12rem;
+}
+
+.pf-stat span {
+    color: var(--pf-ink-soft);
+    font-weight: 600;
+    line-height: 1.65;
+}
+
+.pf-panel-box h3,
+.pf-module h3,
+.pf-step h3,
+.pf-contact-card h2 {
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.pf-module__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.95rem;
+}
+
+.pf-module__top span,
+.pf-step strong {
+    color: var(--pf-primary);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.pf-module__top i {
+    font-size: 1.25rem;
+    color: var(--pf-secondary);
+}
+
+.pf-module h3 {
+    margin-bottom: 0.8rem;
+}
+
+.pf-step {
+    position: relative;
+    color: #f0f7ff;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+}
+
+.pf-step::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 70%);
+    pointer-events: none;
+}
+
+.pf-step p {
+    margin-bottom: 0;
+    color: rgba(234, 243, 251, 0.82);
+}
+
+.pf-accordion {
+    max-width: 58rem;
+}
+
+.accordion-item {
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border-radius: 1.2rem !important;
+}
+
+.accordion-button {
+    padding: 1.2rem 1.35rem;
+    font-weight: 700;
+    color: var(--pf-ink);
+    background: #fff;
+    box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--pf-primary);
+    background: #fff;
+}
+
+.accordion-body {
+    padding: 0 1.35rem 1.35rem;
+    color: var(--pf-ink-soft);
+    line-height: 1.8;
+}
+
+.pf-contact-card {
+    position: relative;
+    padding: 2rem;
+    border-radius: 1.9rem;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(252, 248, 241, 0.92));
+}
+
+.pf-contact-note,
+.pf-contact-side__item,
+.pf-form-shell {
+    border: 1px solid var(--pf-line);
+    box-shadow: var(--pf-shadow);
+}
+
+.pf-contact-note {
+    display: grid;
+    gap: 0.35rem;
+    margin-top: 1.5rem;
+    padding: 1rem 1.1rem;
+    border-radius: 1.2rem;
+    background: linear-gradient(180deg, rgba(32, 117, 240, 0.08), rgba(17, 176, 138, 0.08));
+}
+
+.pf-contact-note strong {
+    font-family: "Sora", "Noto Sans Thai", sans-serif;
+    font-size: 0.98rem;
+}
+
+.pf-contact-note span,
+.pf-contact-side__item span {
+    color: var(--pf-ink-soft);
+}
+
+.pf-contact-side {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.pf-contact-side__item {
+    display: grid;
+    gap: 0.35rem;
+    padding: 1rem 1.1rem;
+    border-radius: 1.2rem;
+    background: rgba(255, 255, 255, 0.88);
+}
+
+.pf-contact-side__item strong {
+    font-size: 1rem;
+    line-height: 1.55;
+}
+
+.pf-form-shell {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 1.55rem;
+    border-radius: 1.55rem;
+    background: rgba(255, 255, 255, 0.92);
+}
+
+.pf-contact-actions,
+.pf-contact-tips {
+    display: grid;
+    gap: 1rem;
+}
+
+.pf-contact-cta,
+.pf-contact-tips__item {
+    border: 1px solid rgba(23, 50, 74, 0.1);
+    box-shadow: var(--pf-shadow);
+}
+
+.pf-contact-cta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.15rem 1.2rem;
+    border-radius: 1.4rem;
+    background: #fff;
+    color: var(--pf-ink);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pf-contact-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 28px 60px rgba(22, 65, 111, 0.18);
+    color: var(--pf-ink);
+}
+
+.pf-contact-cta__icon,
+.pf-contact-cta__arrow {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pf-contact-cta__icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    font-size: 1.35rem;
+    color: #fff;
+}
+
+.pf-contact-cta__content {
+    display: grid;
+    gap: 0.2rem;
+}
+
+.pf-contact-cta__content small {
+    color: var(--pf-ink-soft);
+    font-size: 0.88rem;
+}
+
+.pf-contact-cta__content strong {
+    font-family: "Sora", "Noto Sans Thai", sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.2;
+}
+
+.pf-contact-cta__arrow {
+    margin-left: auto;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+    background: rgba(23, 50, 74, 0.06);
+    color: var(--pf-ink-soft);
+}
+
+.pf-contact-cta--line .pf-contact-cta__icon {
+    background: linear-gradient(135deg, #06c755, #00a53c);
+}
+
+.pf-contact-cta--tel .pf-contact-cta__icon {
+    background: linear-gradient(135deg, var(--pf-primary), var(--pf-secondary));
+}
+
+.pf-contact-tips {
+    margin-top: 1.15rem;
+    padding-top: 1.15rem;
+    border-top: 1px solid rgba(23, 50, 74, 0.08);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.pf-contact-tips__item {
+    display: grid;
+    gap: 0.35rem;
+    padding: 1rem 1.1rem;
+    border-radius: 1.2rem;
+    background: linear-gradient(180deg, #f8fbff, #fff);
+}
+
+.pf-contact-tips__item span {
+    color: var(--pf-ink-soft);
+}
+
+.pf-contact-tips__item strong {
+    font-size: 0.98rem;
+    line-height: 1.55;
+}
+
+.pf-footer {
+    padding: 1.8rem 0 2.2rem;
+    border-top: 1px solid rgba(23, 50, 74, 0.08);
+}
+
+.pf-footer__brand {
+    font-family: "Sora", "Noto Sans Thai", sans-serif;
+    font-weight: 800;
+    margin-bottom: 0.2rem;
+}
+
+@media (max-width: 991.98px) {
+    .pf-navbar {
+        background: rgba(248, 251, 255, 0.94);
+    }
+
+    .pf-hero {
+        padding-top: 7rem;
+    }
+
+    .pf-showcase {
+        padding: 1.35rem;
+    }
+
+    .pf-dashboard__top {
+        flex-direction: column;
+    }
+
+    .pf-floating {
+        position: static;
+        max-width: none;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .pf-contact-tips {
+        grid-template-columns: 1fr;
+    }
+
+    .pf-contact-card,
+    .pf-form-shell,
+    .pf-panel-box,
+    .pf-module,
+    .pf-step,
+    .pf-stat,
+    .pf-hero-metric {
+        padding: 1.25rem;
+    }
+}
