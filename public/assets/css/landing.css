@@ -57,6 +57,10 @@ a {
     border-bottom: 1px solid rgba(255, 255, 255, 0.72);
 }
 
+.pf-navbar .container {
+    position: relative;
+}
+
 .pf-brand-mark {
     display: inline-flex;
     align-items: center;
@@ -90,6 +94,40 @@ a {
 .pf-brand-subtitle {
     font-size: 0.74rem;
     color: var(--pf-ink-soft);
+}
+
+.pf-navbar-toggler {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 12px 30px rgba(19, 59, 97, 0.12);
+}
+
+.pf-navbar-toggler:focus {
+    box-shadow: 0 0 0 0.22rem rgba(32, 117, 240, 0.16);
+}
+
+.pf-navbar-toggler .navbar-toggler-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    background-image: none;
+    background:
+        linear-gradient(var(--pf-ink), var(--pf-ink)) center 0.25rem / 100% 2px no-repeat,
+        linear-gradient(var(--pf-ink), var(--pf-ink)) center center / 100% 2px no-repeat,
+        linear-gradient(var(--pf-ink), var(--pf-ink)) center calc(100% - 0.25rem) / 100% 2px no-repeat;
+}
+
+.pf-nav-panel {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.pf-nav-list .btn {
+    font-weight: 700;
 }
 
 .nav-link {
@@ -733,6 +771,313 @@ a {
     line-height: 1.55;
 }
 
+.pf-section--pricing {
+    position: relative;
+    background:
+        radial-gradient(circle at 15% 15%, rgba(32, 117, 240, 0.12), transparent 26%),
+        radial-gradient(circle at 88% 18%, rgba(17, 176, 138, 0.12), transparent 22%),
+        linear-gradient(180deg, rgba(239, 247, 255, 0.94), rgba(255, 248, 242, 0.92));
+}
+
+.pf-pricing-heading {
+    max-width: 56rem;
+}
+
+.pf-pricing-heading > .pf-kicker:not(.pf-pricing-kicker-clean),
+.pf-pricing-heading > h2:not(.pf-pricing-title-clean),
+.pf-pricing-heading > .pf-copy:not(.pf-pricing-copy-clean),
+.pf-pricing-hero__content > .pf-pricing-hero__eyebrow:not(.pf-pricing-hero__eyebrow-clean),
+.pf-pricing-hero__content > h3:not(.pf-pricing-hero__title-clean),
+.pf-pricing-hero__content > p:not(.pf-pricing-hero__text-clean),
+.pf-pricing-note > div:not(.pf-pricing-note__clean),
+.pf-pricing-note > a:not(.pf-pricing-note__action) {
+    display: none;
+}
+
+.pf-pricing-title-clean {
+    margin-bottom: 0.9rem;
+}
+
+.pf-pricing-copy-clean,
+.pf-pricing-hero__text-clean {
+    margin-bottom: 0;
+}
+
+.pf-pricing-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1.75rem;
+    border-radius: 1.9rem;
+    background: linear-gradient(145deg, rgba(18, 53, 86, 0.97), rgba(25, 77, 121, 0.95));
+    box-shadow: var(--pf-shadow-strong);
+    color: #eef7ff;
+}
+
+.pf-pricing-hero__eyebrow {
+    display: inline-flex;
+    margin-bottom: 0.85rem;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(234, 243, 251, 0.74);
+}
+
+.pf-pricing-hero__content h3 {
+    margin-bottom: 0.85rem;
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+}
+
+.pf-pricing-hero__content p {
+    max-width: 38rem;
+    margin-bottom: 0;
+    color: rgba(234, 243, 251, 0.82);
+    line-height: 1.75;
+}
+
+.pf-pricing-hero__stats {
+    display: grid;
+    gap: 1rem;
+    align-content: center;
+}
+
+.pf-pricing-mini {
+    display: grid;
+    gap: 0.2rem;
+    padding: 1rem 1.1rem;
+    border-radius: 1.2rem;
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pf-pricing-mini span {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: rgba(234, 243, 251, 0.7);
+}
+
+.pf-pricing-mini strong {
+    font-family: "Sora", "Noto Sans Thai", sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.25;
+}
+
+.pf-pricing-mini--accent {
+    background: linear-gradient(135deg, rgba(32, 117, 240, 0.28), rgba(17, 176, 138, 0.24));
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.pf-price-card {
+    position: relative;
+    height: 100%;
+    padding: 1.15rem;
+    border-radius: 1.75rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(23, 50, 74, 0.08);
+    box-shadow: var(--pf-shadow);
+    overflow: hidden;
+}
+
+.pf-price-card__frame {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.42), transparent 30%);
+    pointer-events: none;
+}
+
+.pf-price-card__top,
+.pf-price-card__body {
+    position: relative;
+    z-index: 1;
+}
+
+.pf-price-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.pf-price-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.48rem 0.78rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+}
+
+.pf-price-badge--soft {
+    background: rgba(23, 50, 74, 0.08);
+    color: var(--pf-ink);
+}
+
+.pf-price-badge--popular {
+    background: rgba(17, 176, 138, 0.14);
+    color: #0d8c6d;
+}
+
+.pf-price-badge--primary {
+    background: rgba(32, 117, 240, 0.14);
+    color: var(--pf-primary);
+}
+
+.pf-price-badge--standard {
+    background: rgba(255, 151, 82, 0.16);
+    color: #b95c1c;
+}
+
+.pf-price-term {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--pf-ink-soft);
+}
+
+.pf-price-card__body h3 {
+    margin-bottom: 0.55rem;
+    font-size: 1.5rem;
+}
+
+.pf-price-stack {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    padding: 1.15rem;
+    border-radius: 1.35rem;
+    background: rgba(247, 251, 255, 0.95);
+    border: 1px solid rgba(23, 50, 74, 0.08);
+}
+
+.pf-price-old {
+    margin-bottom: 0.2rem;
+    font-family: "Sora", "Noto Sans Thai", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: rgba(97, 120, 144, 0.85);
+    text-decoration: line-through;
+}
+
+.pf-price-main {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    margin-bottom: 0.35rem;
+}
+
+.pf-price-currency {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--pf-primary);
+    letter-spacing: 0.05em;
+}
+
+.pf-price-main strong {
+    font-family: "Sora", "Noto Sans Thai", sans-serif;
+    font-size: clamp(2rem, 4vw, 2.85rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.05em;
+}
+
+.pf-price-caption {
+    font-size: 0.92rem;
+    color: var(--pf-ink-soft);
+    line-height: 1.65;
+}
+
+.pf-price-cta {
+    margin-bottom: 1.15rem;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+    font-weight: 700;
+}
+
+.pf-price-list {
+    display: grid;
+    gap: 0.7rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.pf-price-list li {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+    color: var(--pf-ink);
+    line-height: 1.65;
+    font-weight: 600;
+}
+
+.pf-price-list i {
+    color: var(--pf-secondary);
+}
+
+.pf-price-card--featured {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 30px 80px rgba(12, 37, 63, 0.18);
+}
+
+.pf-price-card--featured .pf-price-stack {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(235, 246, 255, 0.98));
+}
+
+.pf-price-card--popular {
+    background: linear-gradient(180deg, rgba(240, 255, 250, 0.96), rgba(255, 255, 255, 0.92));
+}
+
+.pf-price-card--primary {
+    background: linear-gradient(180deg, rgba(238, 246, 255, 0.98), rgba(255, 255, 255, 0.94));
+}
+
+.pf-price-card--primary::before,
+.pf-price-card--popular::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 0.45rem;
+}
+
+.pf-price-card--primary::before {
+    background: linear-gradient(90deg, #1f70ea, #18a3e8);
+}
+
+.pf-price-card--popular::before {
+    background: linear-gradient(90deg, #0db98d, #67d4a4);
+}
+
+.pf-pricing-note {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.8rem;
+    padding: 1.15rem 1.3rem;
+    border-radius: 1.45rem;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(23, 50, 74, 0.08);
+    box-shadow: var(--pf-shadow);
+}
+
+.pf-pricing-note strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-family: "Sora", "Noto Sans Thai", sans-serif;
+    font-size: 1rem;
+}
+
+.pf-pricing-note span {
+    color: var(--pf-ink-soft);
+    line-height: 1.7;
+}
+
 .pf-footer {
     padding: 1.8rem 0 2.2rem;
     border-top: 1px solid rgba(23, 50, 74, 0.08);
@@ -749,12 +1094,67 @@ a {
         background: rgba(248, 251, 255, 0.94);
     }
 
+    .pf-nav-panel {
+        position: absolute;
+        top: calc(100% + 0.75rem);
+        left: 0.75rem;
+        right: 0.75rem;
+        margin-top: 0;
+        padding: 0.9rem;
+        border-radius: 1.5rem;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(23, 50, 74, 0.08);
+        box-shadow: 0 28px 70px rgba(12, 37, 63, 0.18);
+        backdrop-filter: blur(18px);
+        transform-origin: top center;
+    }
+
+    .pf-nav-panel:not(.show) {
+        display: none !important;
+    }
+
+    .pf-nav-list {
+        gap: 0.45rem;
+    }
+
+    .pf-nav-list .nav-item {
+        width: 100%;
+    }
+
+    .pf-nav-list .nav-link {
+        display: block;
+        width: 100%;
+        padding: 0.9rem 1rem;
+        border-radius: 1rem;
+        background: rgba(23, 50, 74, 0.04);
+        font-weight: 700;
+    }
+
+    .pf-nav-list .nav-link:hover,
+    .pf-nav-list .nav-link:focus {
+        background: rgba(32, 117, 240, 0.1);
+        color: var(--pf-primary);
+    }
+
+    .pf-nav-list .btn {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 0.3rem;
+        padding-top: 0.9rem;
+        padding-bottom: 0.9rem;
+    }
+
     .pf-hero {
         padding-top: 7rem;
     }
 
     .pf-showcase {
         padding: 1.35rem;
+    }
+
+    .pf-pricing-hero {
+        grid-template-columns: 1fr;
     }
 
     .pf-dashboard__top {
@@ -773,13 +1173,20 @@ a {
         grid-template-columns: 1fr;
     }
 
+    .pf-pricing-note {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     .pf-contact-card,
     .pf-form-shell,
     .pf-panel-box,
     .pf-module,
     .pf-step,
     .pf-stat,
-    .pf-hero-metric {
+    .pf-hero-metric,
+    .pf-price-card,
+    .pf-pricing-hero {
         padding: 1.25rem;
     }
 }

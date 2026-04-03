@@ -26,13 +26,14 @@
                     <span class="pf-brand-subtitle">ระบบจัดการร้านและหลายสาขา</span>
                 </span>
             </a>
-            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <button class="navbar-toggler pf-navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+            <div class="collapse navbar-collapse pf-nav-panel" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2 pf-nav-list">
                     <li class="nav-item"><a class="nav-link" href="#benefits">จุดเด่น</a></li>
                     <li class="nav-item"><a class="nav-link" href="#modules">ฟีเจอร์</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing">ราคา</a></li>
                     <li class="nav-item"><a class="nav-link" href="#workflow">วิธีเริ่มต้น</a></li>
                     <li class="nav-item"><a class="nav-link" href="#faq">คำถามที่พบบ่อย</a></li>
                     <li class="nav-item ms-lg-2"><a class="btn btn-primary rounded-pill px-4" href="#contact">ติดต่อเรา</a></li>
@@ -199,6 +200,103 @@
             </div>
         </section>
 
+        <section id="pricing" class="pf-section pf-section--pricing">
+            <div class="container">
+                <div class="pf-heading pf-pricing-heading">
+                    <span class="pf-kicker pf-pricing-kicker-clean">ราคาโดยประมาณ</span>
+                    <h2 class="pf-pricing-title-clean">แพ็กเกจและราคา</h2>
+                    <p class="pf-copy pf-pricing-copy-clean">เลือกระยะเวลาที่เหมาะกับร้านของคุณได้ทันที พร้อมราคาอ้างอิงให้เทียบชัดเจน</p>
+                    <span class="pf-kicker">ราคาโดยประมาณ</span>
+                    <h2>เลือกแพ็กเกจที่เหมาะกับจังหวะการเริ่มต้นของร้าน</h2>
+                    <p class="pf-copy">ส่วนนี้ออกแบบให้สื่อสารราคาแบบหน้า SaaS ที่ตัดสินใจง่าย มีแพ็กเริ่มต้นให้ลอง มีแพ็กยอดนิยมสำหรับใช้งานจริง และมีแพ็กโปรหลักที่ใช้ราคาเต็มเป็นตัวเปรียบเทียบเพื่อดันความคุ้มให้ชัด</p>
+                </div>
+
+                <div class="pf-pricing-hero">
+                    <div class="pf-pricing-hero__content">
+                        <span class="pf-pricing-hero__eyebrow pf-pricing-hero__eyebrow-clean">ราคา</span>
+                        <h3 class="pf-pricing-hero__title-clean">ราคาใช้งาน PlayFlowPOSPro</h3>
+                        <p class="pf-pricing-hero__text-clean">มีทั้งแพ็กทดลอง แพ็กใช้งานต่อเนื่อง และโปรหลักสำหรับร้านที่ต้องการความคุ้มค่าในระยะยาว</p>
+                        <span class="pf-pricing-hero__eyebrow">Pricing Snapshot</span>
+                        <h3>วางแพ็กให้เห็นความต่างชัดใน 3 วินาที</h3>
+                        <p>แพ็ก 3 เดือนช่วยลดแรงต้านการเริ่มต้น, แพ็ก 6 เดือนทำหน้าที่เป็นตัวขายดี, และแพ็ก 1 ปีราคา 3,000 เป็น hero offer ที่เด่นที่สุดเมื่อวางคู่กับราคาอ้างอิง 4,999</p>
+                    </div>
+                    <div class="pf-pricing-hero__stats">
+                        <div class="pf-pricing-mini">
+                            <span>เริ่มต้นเร็ว</span>
+                            <strong>3 เดือน / THB 1,200</strong>
+                        </div>
+                        <div class="pf-pricing-mini">
+                            <span>ตัวขายดี</span>
+                            <strong>6 เดือน / THB 2,100</strong>
+                        </div>
+                        <div class="pf-pricing-mini pf-pricing-mini--accent">
+                            <span>โปรเด่น</span>
+                            <strong>1 ปี / THB 3,000</strong>
+                        </div>
+                        <div class="pf-pricing-mini">
+                            <span>ราคาอ้างอิง</span>
+                            <strong>1 ปี / THB 4,999</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    @foreach ($pricingPlans as $plan)
+                        <div class="col-md-6 col-xl-3">
+                            <article class="pf-price-card @if ($plan['featured']) pf-price-card--featured @endif pf-price-card--{{ $plan['badge_class'] }}">
+                                <div class="pf-price-card__frame"></div>
+                                <div class="pf-price-card__top">
+                                    <span class="pf-price-badge pf-price-badge--{{ $plan['badge_class'] }}">{{ $plan['badge'] }}</span>
+                                    <div class="pf-price-term">{{ $plan['duration'] }}</div>
+                                </div>
+
+                                <div class="pf-price-card__body">
+                                    <h3>{{ $plan['name'] }}</h3>
+                                    <p class="pf-copy">{{ $plan['summary'] }}</p>
+
+                                    <div class="pf-price-stack">
+                                        @if ($plan['old_price'])
+                                            <div class="pf-price-old">THB {{ $plan['old_price'] }}</div>
+                                        @endif
+
+                                        <div class="pf-price-main">
+                                            <span class="pf-price-currency">THB</span>
+                                            <strong>{{ $plan['price'] }}</strong>
+                                        </div>
+
+                                        <div class="pf-price-caption">{{ $plan['caption'] }}</div>
+                                    </div>
+
+                                    <a class="btn @if ($plan['featured']) btn-primary @else btn-outline-dark @endif rounded-pill w-100 pf-price-cta" href="#contact">
+                                        {{ $plan['cta'] }}
+                                    </a>
+
+                                    <ul class="pf-price-list">
+                                        @foreach ($plan['features'] as $feature)
+                                            <li><i class="bi bi-check2-circle"></i> {{ $feature }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+                    @endforeach
+                </div>
+
+                <div class="pf-pricing-note">
+                    <div class="pf-pricing-note__clean">
+                        <strong>สนใจรายละเอียดเพิ่มเติม</strong>
+                        <span>สอบถามเงื่อนไขการใช้งาน โปรโมชั่น และการเริ่มต้นระบบได้โดยตรง</span>
+                    </div>
+                    <a class="btn btn-primary rounded-pill px-4 pf-pricing-note__action" href="#contact">สอบถามราคา</a>
+                    <div>
+                        <strong>วิเคราะห์การจัดราคา</strong>
+                        <span>โครงนี้ทำให้ลูกค้าเห็น anchor price ชัด, เข้าใจว่าแพ็กไหนเหมาะกับการเริ่มใช้จริง, และรับรู้ทันทีว่าโปร 1 ปี 3,000 คือข้อเสนอที่ควรตัดสินใจมากที่สุด</span>
+                    </div>
+                    <a class="btn btn-primary rounded-pill px-4" href="#contact">คุยเรื่องราคาและเงื่อนไข</a>
+                </div>
+            </div>
+        </section>
+
         <section id="workflow" class="pf-section pf-section--dark">
             <div class="container">
                 <div class="pf-heading pf-heading--light">
@@ -307,5 +405,24 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var menu = document.getElementById('mainNav');
+
+            if (!menu || typeof bootstrap === 'undefined') {
+                return;
+            }
+
+            var navCollapse = bootstrap.Collapse.getOrCreateInstance(menu, { toggle: false });
+
+            menu.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    if (window.innerWidth < 992 && menu.classList.contains('show')) {
+                        navCollapse.hide();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
